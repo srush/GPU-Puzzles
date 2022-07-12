@@ -840,7 +840,7 @@ We will do this, using the *parallel prefix sum* algorithm in shared memory.
 That is each step of the algorithm should sum together half the remaining numbers.
 Follow the top half of this diagram.
 
-!()[https://en.wikipedia.org/wiki/Prefix_sum#/media/File:Prefix_sum_16.svg]
+![](https://en.wikipedia.org/wiki/Prefix_sum#/media/File:Prefix_sum_16.svg)
 
 
 ```python
