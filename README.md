@@ -1,18 +1,3 @@
----
-jupyter:
-  jupytext:
-    cell_metadata_filter: -all
-    text_representation:
-      extension: .md
-      format_name: markdown
-      format_version: '1.3'
-      jupytext_version: 1.14.0
-  kernelspec:
-    display_name: myenv
-    language: python
-    name: myenv
----
-
 # GPU Puzzles
 - by [Sasha Rush](http://rush-nlp.com) - [srush_nlp](https://twitter.com/srush_nlp) 
 
