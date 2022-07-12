@@ -497,10 +497,6 @@ After writing you should use `cuda.syncthreads` to ensure that threads do not cr
 
 ```python
 TPB = 4
-```
-
-
-```python
 def shared_test(cuda):
     def call(out, a, size) -> None:
         shared = cuda.shared.array(TPB, numba.float32)
@@ -546,7 +542,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_56_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_55_1.svg)
     
 
 
@@ -566,6 +562,8 @@ problem.check()
 Implement a kernel that sums together the last 3 position of `a` and stores it in `out`.
 You have 1 thread per position. You only need 1 global read and 1 global write per thread.
 
+*Tip: Remember to be careful amount syncing.*
+
 
 ```python
 def pool_spec(a):
@@ -578,10 +576,6 @@ def pool_spec(a):
 
 ```python
 TPB = 8
-```
-
-
-```python
 def pool_test(cuda):
     def call(out, a, size) -> None:
         shared = cuda.shared.array(TPB, numba.float32)
@@ -622,7 +616,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_63_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_62_1.svg)
     
 
 
@@ -651,10 +645,6 @@ def dot_spec(a, b):
 
 ```python
 TPB = 8
-```
-
-
-```python
 def dot_test(cuda):
     def call(out, a, b, size) -> None:
         a_shared = cuda.shared.array(TPB, numba.float32)
@@ -698,7 +688,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_69_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_67_1.svg)
     
 
 
@@ -733,10 +723,6 @@ def conv_spec(a, b):
 MAX_CONV = 5
 TPB = 8
 TPB_MAX_CONV = TPB + MAX_CONV
-```
-
-
-```python
 def conv_test(cuda):
     def call(out, a, b, a_size, b_size) -> None:
         i = cuda.blockIdx.x * cuda.blockDim.x + cuda.threadIdx.x
@@ -781,7 +767,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_76_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_73_1.svg)
     
 
 
@@ -828,7 +814,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_79_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_76_1.svg)
     
 
 
@@ -858,10 +844,6 @@ Follow the top half of this diagram.
 
 ```python
 TPB = 8
-```
-
-
-```python
 def sum_spec(a):
     out = np.zeros((a.shape[0] + TPB - 1) // TPB)
     for j, i in enumerate(range(0, a.shape[-1], TPB)):
@@ -913,7 +895,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_88_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_84_1.svg)
     
 
 
@@ -960,7 +942,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_91_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_87_1.svg)
     
 
 
@@ -982,10 +964,6 @@ Implement a kernel that computes a sum over each row of `a` and stores it in `ou
 
 ```python
 TPB = 8
-```
-
-
-```python
 def sum_spec(a):
     out = np.zeros((a.shape[0], (a.shape[1] + TPB - 1) // TPB))
     for j, i in enumerate(range(0, a.shape[-1], TPB)):
@@ -1037,7 +1015,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_97_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_92_1.svg)
     
 
 
@@ -1080,10 +1058,6 @@ def matmul_spec(a, b):
 
 ```python
 TPB = 3
-```
-
-
-```python
 def mm_oneblock_test(cuda):
     def call(out, a, b, size: int) -> None:
         a_shared = cuda.shared.array((TPB, TPB), numba.float32)
@@ -1135,7 +1109,7 @@ problem.show(sparse=True)
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_105_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_99_1.svg)
     
 
 
@@ -1188,7 +1162,7 @@ problem.show(sparse=True)
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_108_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_102_1.svg)
     
 
 
