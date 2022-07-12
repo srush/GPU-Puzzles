@@ -1,7 +1,7 @@
 # GPU Puzzles
 - by [Sasha Rush](http://rush-nlp.com) - [srush_nlp](https://twitter.com/srush_nlp)
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/srush/GPU-Puzzles/blob/main/GPU_puzzlers.ipynb)
+![](https://github.com/srush/GPU-Puzzles/raw/main/cuda.png)
 
 GPU architectures are critical to machine learning, and seem to be
 becoming even more important every day. However you can be an expert
@@ -9,16 +9,20 @@ in machine learning without ever touching GPU code. It is a bit
 weird to be work always through abstraction. 
 
 This notebook is an attempt teach beginner GPU programming in a
-completely interactive fashion. Instead of providing a textual with
-concepts, it throws you right in to coding and building GPU
-kernels. In a few hours, I think you can go from basics to
-understanding the key algorithms that power 99% of deep learning
+completely interactive fashion. Instead of providing text with
+concepts, it throws you right into coding and building GPU
+kernels. The exercises use NUMBA which directly maps Python
+code to CUDA kernels. It looks like Python but is basically
+identical to writing low-level CUDA code. 
+In a few hours, I think you can go from basics to
+understanding the real algorithms that power 99% of deep learning
 today.
 
-I recommend doing these in Colab, as it is easy to get started.
-Be sure to turn on GPU mode in the settings and then get coding. 
+I recommend doing these in Colab, as it is easy to get started.  Be
+sure to make your own copy, turn on GPU mode in the settings, and
+then get to coding.
 
-![](https://github.com/srush/GPU-Puzzles/raw/main/cuda.png)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/srush/GPU-Puzzles/blob/main/GPU_puzzlers.ipynb)
 
 (If you are into this style of puzzle, also check out my [Tensor
 Puzzles](https://github.com/srush/Tensor-Puzzles) for PyTorch.)
