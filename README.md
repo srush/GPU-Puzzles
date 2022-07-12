@@ -3,7 +3,10 @@
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/srush/GPU-Puzzles/blob/main/GPU_puzzlers.ipynb)
 
-![](https://github.com/srush/GPU-Puzzles/raw/main/cuda.png)
+
+```python
+
+```
 
 GPU architectures are critical to machine learning, and seem to be
 becoming even more important every day.  This notebook is an attempt
@@ -13,7 +16,12 @@ textual guide that tries to explain the concepts, it throws you
 right in to coding and building GPU kernels. In a few hours, I think
 you can go from basics to understanding the key algorithms.
 
-(If you are into this style of teaching, also check out my [Tensor
+I recommend doing these in Colab, as it is easy to get started.
+Be sure to turn on GPU mode in the settings and then get coding. 
+
+![](https://github.com/srush/GPU-Puzzles/raw/main/cuda.png)
+
+(If you are into this style of puzzle, also check out my [Tensor
 Puzzles](https://github.com/srush/Tensor-Puzzles) for PyTorch.)
 
 
@@ -84,7 +92,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_13_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_15_1.svg)
     
 
 
@@ -144,7 +152,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_19_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_21_1.svg)
     
 
 
@@ -203,7 +211,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_24_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_26_1.svg)
     
 
 
@@ -257,7 +265,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_29_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_31_1.svg)
     
 
 
@@ -320,7 +328,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_34_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_36_1.svg)
     
 
 
@@ -385,7 +393,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_40_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_42_1.svg)
     
 
 
@@ -449,7 +457,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_46_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_48_1.svg)
     
 
 
@@ -535,7 +543,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_54_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_56_1.svg)
     
 
 
@@ -611,7 +619,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_61_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_63_1.svg)
     
 
 
@@ -687,7 +695,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_67_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_69_1.svg)
     
 
 
@@ -770,7 +778,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_74_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_76_1.svg)
     
 
 
@@ -817,7 +825,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_77_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_79_1.svg)
     
 
 
@@ -902,7 +910,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_86_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_88_1.svg)
     
 
 
@@ -949,7 +957,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_89_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_91_1.svg)
     
 
 
@@ -1026,7 +1034,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_95_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_97_1.svg)
     
 
 
@@ -1124,7 +1132,7 @@ problem.show(sparse=True)
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_103_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_105_1.svg)
     
 
 
@@ -1177,7 +1185,7 @@ problem.show(sparse=True)
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_106_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_108_1.svg)
     
 
 
