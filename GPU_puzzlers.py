@@ -316,7 +316,7 @@ problem.check()
 # Implement a kernel that sums together the last 3 position of `a` and stores it in `out`.
 # You have 1 thread per position. You only need 1 global read and 1 global write per thread.
 
-# *Tip: Remember to be careful amount syncing.*
+# *Tip: Remember to be careful about syncing.*
 
 
 def pool_spec(a):
