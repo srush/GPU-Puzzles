@@ -44,9 +44,6 @@ class Scalar:
             return ScalarHistory("id", [self])
         return ScalarHistory("+", [self, b])
 
-    def __iadd__(self, other):
-        return other
-
 
 class Table:
     def __init__(self, name, array):
