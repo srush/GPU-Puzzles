@@ -53,6 +53,13 @@ warnings.filterwarnings(
 Implement a "kernel" (GPU function) that adds 10 to each position of vector `a`
 and stores it in vector `out`.  You have 1 thread per position.
 
+**Warning** This code looks like Python but it is really CUDA! You cannot use
+standard python tools like list comprehensions or ask for Numpy properties
+like shape or size (if you need the size, it is given as an argument).
+The puzzles only require doing simple operations, basically
++, *, simple array indexing, for loops, and if statements. If you get an
+error it is probably because you did something fancy :). 
+
 *Tip: Think of the function `call` as being run 1 time for each thread.
 The only difference is that `cuda.threadIdx.x` changes each time.*
 
@@ -95,7 +102,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_15_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_16_1.svg)
     
 
 
@@ -155,7 +162,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_21_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_22_1.svg)
     
 
 
@@ -214,7 +221,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_26_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_27_1.svg)
     
 
 
@@ -268,7 +275,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_31_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_32_1.svg)
     
 
 
@@ -331,7 +338,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_36_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_37_1.svg)
     
 
 
@@ -396,7 +403,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_42_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_43_1.svg)
     
 
 
@@ -460,7 +467,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_48_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_49_1.svg)
     
 
 
@@ -542,7 +549,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_55_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_56_1.svg)
     
 
 
@@ -616,7 +623,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_62_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_63_1.svg)
     
 
 
@@ -691,7 +698,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_68_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_69_1.svg)
     
 
 
@@ -770,7 +777,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_74_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_75_1.svg)
     
 
 
@@ -817,7 +824,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_77_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_78_1.svg)
     
 
 
@@ -898,7 +905,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_85_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_86_1.svg)
     
 
 
@@ -945,7 +952,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_88_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_89_1.svg)
     
 
 
@@ -1018,7 +1025,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_93_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_94_1.svg)
     
 
 
@@ -1112,7 +1119,7 @@ problem.show(sparse=True)
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_100_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_101_1.svg)
     
 
 
@@ -1165,7 +1172,7 @@ problem.show(sparse=True)
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_103_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_104_1.svg)
     
 
 
