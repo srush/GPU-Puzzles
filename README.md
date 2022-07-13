@@ -360,7 +360,7 @@ problem.check()
 ## Puzzle 6 - Blocks
 
 Implement a kernel that adds 10 to each position of `a` and stores it in `out`.
-You have less threads per block than the size of `a`.
+You have fewer threads per block than the size of `a`.
 
 *Tip: A block is a group of threads. The number of threads per block is limited, but we can
 have many different blocks. Variable `cuda.blockIdx` tells us what block we are in.*
@@ -422,7 +422,7 @@ problem.check()
 
 ## Puzzle 7 - Blocks 2D
 
-Implement the same kernel in 2D.  You have less threads per block
+Implement the same kernel in 2D.  You have fewer threads per block
 than the size of `a` in both directions.
 
 
@@ -495,7 +495,7 @@ problem.check()
 ## Puzzle 8 - Shared
 
 Implement a kernel that adds 10 to each position of `a` and stores it in `out`.
-You have less threads per block than the size of `a`.
+You have fewer threads per block than the size of `a`.
 
 *Tip: Each block can have a constant amount of shared memory that
 only threads in that block can read and write to.
@@ -571,7 +571,7 @@ problem.check()
 Implement a kernel that sums together the last 3 position of `a` and stores it in `out`.
 You have 1 thread per position. You only need 1 global read and 1 global write per thread.
 
-*Tip: Remember to be careful amount syncing.*
+*Tip: Remember to be careful about syncing.*
 
 
 ```python
@@ -847,8 +847,8 @@ Implement a kernel that computes a sum over `a` and stores it in `out`.
 If the size of `a` is greater than the block size, only store the sum of
 each block.
 
-We will do this, using the [parallel prefix sum](https://en.wikipedia.org/wiki/Prefix_sum) algorithm in shared memory.
-That is each step of the algorithm should sum together half the remaining numbers.
+We will do this using the [parallel prefix sum](https://en.wikipedia.org/wiki/Prefix_sum) algorithm in shared memory.
+That is, each step of the algorithm should sum together half the remaining numbers.
 Follow this diagram:
 
 ![](https://user-images.githubusercontent.com/35882/178757889-1c269623-93af-4a2e-a7e9-22cd55a42e38.png)
@@ -1056,7 +1056,7 @@ stores it in `out`.
 *Tip: The most efficient algorithm here will copy a block into
  shared memory before computing each of the individual row-column
  dot products. This is easy to do if the matrix fits in shared
- memory.  Do that case first. Then update your code so that compute
+ memory.  Do that case first. Then update your code to compute
  a partial dot-product and then iteratively move the part that you
  copied into shared memory.* You should be able to do the hard case
  in 6 global reads.
