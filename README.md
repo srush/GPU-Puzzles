@@ -411,7 +411,7 @@ problem.check()
     Spec : [10 11 12 13 14 15 16 17 18]
 
 
-Puzzle 7 - Blocks 2D
+## Puzzle 7 - Blocks 2D
 
 Implement the same kernel in 2D.  You have less threads per block
 than the size of `a` in both directions.
@@ -483,7 +483,7 @@ problem.check()
      [11. 11. 11. 11. 11.]]
 
 
-Puzzle 8 - Shared
+## Puzzle 8 - Shared
 
 Implement a kernel that adds 10 to each position of `a` and stores it in `out`.
 You have less threads per block than the size of `a`.
@@ -636,6 +636,9 @@ problem.check()
 Implement a kernel that computes the dot-product of `a` and `b` and stores it in `out`.
 You have 1 thread per position. You only need 1 global read and 1 global write per thread.
 
+*Note: For this problem you don't need to worry about number of shared reads. We will
+ handle that challenge later.*
+
 
 ```python
 def dot_spec(a, b):
@@ -688,7 +691,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_67_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_68_1.svg)
     
 
 
@@ -767,7 +770,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_73_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_74_1.svg)
     
 
 
@@ -814,7 +817,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_76_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_77_1.svg)
     
 
 
@@ -835,11 +838,11 @@ Implement a kernel that computes a sum over `a` and stores it in `out`.
 If the size of `a` is greater than the block size, only store the sum of
 each block.
 
-We will do this, using the *parallel prefix sum* algorithm in shared memory.
+We will do this, using the [parallel prefix sum](https://en.wikipedia.org/wiki/Prefix_sum) algorithm in shared memory.
 That is each step of the algorithm should sum together half the remaining numbers.
 Follow the top half of this diagram.
 
-![](https://en.wikipedia.org/wiki/Prefix_sum#/media/File:Prefix_sum_16.svg)
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Prefix_sum_16.svg/1280px-Prefix_sum_16.svg.png)
 
 
 ```python
@@ -895,7 +898,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_84_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_85_1.svg)
     
 
 
@@ -942,7 +945,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_87_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_88_1.svg)
     
 
 
@@ -1015,7 +1018,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_92_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_93_1.svg)
     
 
 
@@ -1109,7 +1112,7 @@ problem.show(sparse=True)
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_99_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_100_1.svg)
     
 
 
@@ -1162,7 +1165,7 @@ problem.show(sparse=True)
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_102_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_103_1.svg)
     
 
 
