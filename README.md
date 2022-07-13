@@ -847,9 +847,9 @@ each block.
 
 We will do this, using the [parallel prefix sum](https://en.wikipedia.org/wiki/Prefix_sum) algorithm in shared memory.
 That is each step of the algorithm should sum together half the remaining numbers.
-Follow the top half of this diagram.
+Follow this diagram:
 
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Prefix_sum_16.svg/1280px-Prefix_sum_16.svg.png)
+![](https://user-images.githubusercontent.com/35882/178757889-1c269623-93af-4a2e-a7e9-22cd55a42e38.png)
 
 
 ```python
