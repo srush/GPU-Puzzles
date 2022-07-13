@@ -16,10 +16,12 @@ code to CUDA kernels. It looks like Python but is basically
 identical to writing low-level CUDA code. 
 In a few hours, I think you can go from basics to
 understanding the real algorithms that power 99% of deep learning
-today.
+today. If you do want to read the manual, it is here:
+
+[NUMBA CUDA Guide](https://numba.readthedocs.io/en/stable/cuda/index.html)
 
 I recommend doing these in Colab, as it is easy to get started.  Be
-sure to make your own copy, turn on GPU mode in the settings, and
+sure to make your own copy, turn on GPU mode in the settings (`Runtime / Change runtime type`, then set `Hardware accelerator` to `GPU`), and
 then get to coding.
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/srush/GPU-Puzzles/blob/main/GPU_puzzlers.ipynb)
@@ -102,7 +104,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_16_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_17_1.svg)
     
 
 
@@ -162,7 +164,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_22_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_23_1.svg)
     
 
 
@@ -221,7 +223,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_27_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_28_1.svg)
     
 
 
@@ -275,7 +277,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_32_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_33_1.svg)
     
 
 
@@ -338,7 +340,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_37_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_38_1.svg)
     
 
 
@@ -403,7 +405,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_43_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_44_1.svg)
     
 
 
@@ -467,7 +469,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_49_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_50_1.svg)
     
 
 
@@ -549,7 +551,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_56_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_57_1.svg)
     
 
 
@@ -623,7 +625,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_63_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_64_1.svg)
     
 
 
@@ -698,7 +700,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_69_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_70_1.svg)
     
 
 
@@ -777,7 +779,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_75_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_76_1.svg)
     
 
 
@@ -824,7 +826,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_78_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_79_1.svg)
     
 
 
@@ -905,7 +907,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_86_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_87_1.svg)
     
 
 
@@ -952,7 +954,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_89_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_90_1.svg)
     
 
 
@@ -1025,7 +1027,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_94_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_95_1.svg)
     
 
 
@@ -1119,7 +1121,7 @@ problem.show(sparse=True)
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_101_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_102_1.svg)
     
 
 
@@ -1172,7 +1174,7 @@ problem.show(sparse=True)
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_104_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_105_1.svg)
     
 
 
