@@ -184,8 +184,8 @@ def table(name, r, c):
 def myconnect(diagram, loc, color, con, name1, name2):
     bb1 = diagram.get_subdiagram_envelope(name1)
     bb2 = diagram.get_subdiagram_envelope(name2)
-    assert bb1 is not None, name1
-    assert bb2 is not None, name2
+    assert bb1 is not None, f"{name1}: You may be reading/writing from an un'synced array"
+    assert bb2 is not None, f"{name2}: You may be reading/writing from an un'synced array"
     off = P2(loc[0] - 0.5, loc[1] - 0.5) * 0.85
     dia = empty()
     if con:
