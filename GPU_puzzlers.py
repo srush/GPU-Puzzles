@@ -61,7 +61,7 @@ warnings.filterwarnings(
 # *Tip: Think of the function `call` as being run 1 time for each thread.
 # The only difference is that `cuda.threadIdx.x` changes each time.*
 
-
+# +
 def map_spec(a):
     return a + 10
 
@@ -82,14 +82,16 @@ problem = CudaProblem(
 )
 problem.show()
 
+# +
 problem.check()
+# -
 
 # ## Puzzle 2 - Zip
 
 # Implement a kernel that adds together each position of `a` and `b` and stores it in `out`.
 # You have 1 thread per position.
 
-
+# +
 def zip_spec(a, b):
     return a + b
 
@@ -110,15 +112,18 @@ problem = CudaProblem(
     "Zip", zip_test, [a, b], out, threadsperblock=Coord(SIZE, 1), spec=zip_spec
 )
 problem.show()
+# +
 
+# +
 problem.check()
+# -
 
 # ## Puzzle 3 - Guards
 
 # Implement a kernel that adds 10 to each position of `a` and stores it in `out`.
 # You have more threads than positions.
 
-
+# +
 def map_guard_test(cuda):
     def call(out, a, size) -> None:
         local_i = cuda.threadIdx.x
@@ -141,15 +146,16 @@ problem = CudaProblem(
 )
 problem.show()
 
+# +
 problem.check()
-
+# -
 
 # ## Puzzle 4 - Map 2D
 
 # Implement a kernel that adds 10 to each position of `a` and stores it in `out`.
 # Input `a` is 2D and square. You have more threads than positions.
 
-
+# +
 def map_2D_test(cuda):
     def call(out, a, size) -> None:
         local_i = cuda.threadIdx.x
@@ -167,14 +173,16 @@ problem = CudaProblem(
 )
 problem.show()
 
+# +
 problem.check()
+# -
 
 # ## Puzzle 5 - Broadcast
 
 # Implement a kernel that adds `a` and `b` and stores it in `out`.
 # Inputs `a` and `b` are vectors. You have more threads than positions.
 
-
+# +
 def broadcast_test(cuda):
     def call(out, a, b, size) -> None:
         local_i = cuda.threadIdx.x
@@ -199,7 +207,9 @@ problem = CudaProblem(
 )
 problem.show()
 
+# +
 problem.check()
+# -
 
 # ## Puzzle 6 - Blocks
 
@@ -209,7 +219,7 @@ problem.check()
 # *Tip: A block is a group of threads. The number of threads per block is limited, but we can
 # have many different blocks. Variable `cuda.blockIdx` tells us what block we are in.*
 
-
+# +
 def map_block_test(cuda):
     def call(out, a, size) -> None:
         i = cuda.blockIdx.x * cuda.blockDim.x + cuda.threadIdx.x
@@ -233,14 +243,16 @@ problem = CudaProblem(
 )
 problem.show()
 
+# +
 problem.check()
+# -
 
 # ## Puzzle 7 - Blocks 2D
 
 # Implement the same kernel in 2D.  You have fewer threads per block
 # than the size of `a` in both directions.
 
-
+# +
 def map_block2D_test(cuda):
     def call(out, a, size) -> None:
         i = cuda.blockIdx.x * cuda.blockDim.x + cuda.threadIdx.x
@@ -265,7 +277,9 @@ problem = CudaProblem(
 )
 problem.show()
 
+# +
 problem.check()
+# -
 
 # ## Puzzle 8 - Shared
 
@@ -278,6 +292,7 @@ problem.check()
 
 # (This example does not really need shared memory or syncthreads, but it is a demo.)
 
+# +
 TPB = 4
 def shared_test(cuda):
     def call(out, a, size) -> None:
@@ -309,7 +324,9 @@ problem = CudaProblem(
 )
 problem.show()
 
+# +
 problem.check()
+# -
 
 # ## Puzzle 9 - Pooling
 
@@ -318,7 +335,7 @@ problem.check()
 
 # *Tip: Remember to be careful about syncing.*
 
-
+# +
 def pool_spec(a):
     out = np.zeros(*a.shape)
     for i in range(a.shape[0]):
@@ -352,8 +369,9 @@ problem = CudaProblem(
 )
 problem.show()
 
+# +
 problem.check()
-
+# -
 
 # ## Puzzle 10 - Dot Product
 #
@@ -363,6 +381,7 @@ problem.check()
 # *Note: For this problem you don't need to worry about number of shared reads. We will
 #  handle that challenge later.*
 
+# +
 def dot_spec(a, b):
     return a @ b
 
@@ -370,8 +389,7 @@ def dot_spec(a, b):
 TPB = 8
 def dot_test(cuda):
     def call(out, a, b, size) -> None:
-        a_shared = cuda.shared.array(TPB, numba.float32)
-        b_shared = cuda.shared.array(TPB, numba.float32)
+        shared = cuda.shared.array(TPB, numba.float32)
 
         i = cuda.blockIdx.x * cuda.blockDim.x + cuda.threadIdx.x
         local_i = cuda.threadIdx.x
@@ -396,7 +414,9 @@ problem = CudaProblem(
 )
 problem.show()
 
+# +
 problem.check()
+# -
 
 # ## Puzzle 11 - 1D Convolution
 #
@@ -404,6 +424,7 @@ problem.check()
 # You need to handle the general case. You only need 2 global reads and 1 global write per thread.
 
 
+# +
 def conv_spec(a, b):
     out = np.zeros(*a.shape)
     len = b.shape[0]
@@ -444,11 +465,13 @@ problem = CudaProblem(
 )
 problem.show()
 
+# +
 problem.check()
-
+# -
 
 # Test 2
 
+# +
 out = np.zeros(15)
 a = np.arange(15)
 b = np.arange(4)
@@ -463,8 +486,11 @@ problem = CudaProblem(
     spec=conv_spec,
 )
 problem.show()
+# -
 
+# +
 problem.check()
+# -
 
 # ## Puzzle 12 - Prefix Sum
 #
@@ -478,6 +504,7 @@ problem.check()
 
 # ![](https://user-images.githubusercontent.com/35882/178757889-1c269623-93af-4a2e-a7e9-22cd55a42e38.png)
 
+# +
 TPB = 8
 def sum_spec(a):
     out = np.zeros((a.shape[0] + TPB - 1) // TPB)
@@ -513,10 +540,13 @@ problem = CudaProblem(
 )
 problem.show()
 
+# +
 problem.check()
+# -
 
 # Test 2
 
+# +
 SIZE = 15
 out = np.zeros(2)
 inp = np.arange(SIZE)
@@ -532,12 +562,15 @@ problem = CudaProblem(
 )
 problem.show()
 
+# +
 problem.check()
+# -
 
 # ## Puzzle 13 - Axis Sum
 #
 # Implement a kernel that computes a sum over each row of `a` and stores it in `out`.
 
+# +
 TPB = 8
 def sum_spec(a):
     out = np.zeros((a.shape[0], (a.shape[1] + TPB - 1) // TPB))
@@ -573,8 +606,9 @@ problem = CudaProblem(
 )
 problem.show()
 
+# +
 problem.check()
-
+# -
 
 # ## Puzzle 14 - Matrix Multiply!
 #
@@ -589,7 +623,7 @@ problem.check()
 #  copied into shared memory.* You should be able to do the hard case
 #  in 6 global reads.
 
-
+# +
 def matmul_spec(a, b):
     return a @ b
 
@@ -607,7 +641,6 @@ def mm_oneblock_test(cuda):
         # FILL ME IN (roughly 14 lines)
 
     return call
-
 
 # Test 1
 
@@ -628,9 +661,13 @@ problem = CudaProblem(
 )
 problem.show(sparse=True)
 
+# +
 problem.check()
+# -
 
 # Test 2
+
+# +
 SIZE = 8
 out = np.zeros((SIZE, SIZE))
 inp1 = np.arange(SIZE * SIZE).reshape((SIZE, SIZE))
@@ -647,5 +684,8 @@ problem = CudaProblem(
     spec=matmul_spec,
 )
 problem.show(sparse=True)
+# -
 
+# +
 problem.check()
+# -

@@ -69,20 +69,16 @@ The only difference is that `cuda.threadIdx.x` changes each time.*
 ```python
 def map_spec(a):
     return a + 10
-```
 
 
-```python
 def map_test(cuda):
     def call(out, a) -> None:
         local_i = cuda.threadIdx.x
         # FILL ME IN (roughly 1 lines)
 
     return call
-```
 
 
-```python
 SIZE = 4
 out = np.zeros((SIZE,))
 a = np.arange(SIZE)
@@ -104,7 +100,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_17_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_15_1.svg)
     
 
 
@@ -128,20 +124,16 @@ You have 1 thread per position.
 ```python
 def zip_spec(a, b):
     return a + b
-```
 
 
-```python
 def zip_test(cuda):
     def call(out, a, b) -> None:
         local_i = cuda.threadIdx.x
         # FILL ME IN (roughly 1 lines)
 
     return call
-```
 
 
-```python
 SIZE = 4
 out = np.zeros((SIZE,))
 a = np.arange(SIZE)
@@ -164,10 +156,15 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_23_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_19_1.svg)
     
 
 
+
+
+```python
+
+```
 
 
 ```python
@@ -192,10 +189,8 @@ def map_guard_test(cuda):
         # FILL ME IN (roughly 2 lines)
 
     return call
-```
 
 
-```python
 SIZE = 4
 out = np.zeros((SIZE,))
 a = np.arange(SIZE)
@@ -223,7 +218,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_28_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_24_1.svg)
     
 
 
@@ -252,10 +247,8 @@ def map_2D_test(cuda):
         # FILL ME IN (roughly 2 lines)
 
     return call
-```
 
 
-```python
 SIZE = 2
 out = np.zeros((SIZE, SIZE))
 a = np.arange(SIZE * SIZE).reshape((SIZE, SIZE))
@@ -277,7 +270,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_33_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_28_1.svg)
     
 
 
@@ -308,10 +301,8 @@ def broadcast_test(cuda):
         # FILL ME IN (roughly 2 lines)
 
     return call
-```
 
 
-```python
 SIZE = 2
 out = np.zeros((SIZE, SIZE))
 a = np.arange(SIZE).reshape(SIZE, 1)
@@ -340,7 +331,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_38_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_32_1.svg)
     
 
 
@@ -373,10 +364,8 @@ def map_block_test(cuda):
         # FILL ME IN (roughly 2 lines)
 
     return call
-```
 
 
-```python
 SIZE = 9
 out = np.zeros((SIZE,))
 a = np.arange(SIZE)
@@ -405,7 +394,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_44_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_37_1.svg)
     
 
 
@@ -433,17 +422,12 @@ def map_block2D_test(cuda):
         # FILL ME IN (roughly 4 lines)
 
     return call
-```
 
 
-```python
 SIZE = 5
 out = np.zeros((SIZE, SIZE))
 a = np.ones((SIZE, SIZE))
-```
 
-
-```python
 problem = CudaProblem(
     "Blocks 2D",
     map_block2D_test,
@@ -469,7 +453,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_50_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_41_1.svg)
     
 
 
@@ -519,10 +503,8 @@ def shared_test(cuda):
         # FILL ME IN (roughly 2 lines)
 
     return call
-```
 
 
-```python
 SIZE = 8
 out = np.zeros(SIZE)
 a = np.ones(SIZE)
@@ -551,7 +533,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_57_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_47_1.svg)
     
 
 
@@ -580,10 +562,8 @@ def pool_spec(a):
     for i in range(a.shape[0]):
         out[i] = a[max(i - 2, 0) : i + 1].sum()
     return out
-```
 
 
-```python
 TPB = 8
 def pool_test(cuda):
     def call(out, a, size) -> None:
@@ -593,10 +573,8 @@ def pool_test(cuda):
         # FILL ME IN (roughly 8 lines)
 
     return call
-```
 
 
-```python
 SIZE = 8
 out = np.zeros(SIZE)
 a = np.arange(SIZE)
@@ -625,7 +603,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_64_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_52_1.svg)
     
 
 
@@ -652,25 +630,20 @@ You have 1 thread per position. You only need 1 global read and 1 global write p
 ```python
 def dot_spec(a, b):
     return a @ b
-```
 
 
-```python
 TPB = 8
 def dot_test(cuda):
     def call(out, a, b, size) -> None:
-        a_shared = cuda.shared.array(TPB, numba.float32)
-        b_shared = cuda.shared.array(TPB, numba.float32)
+        shared = cuda.shared.array(TPB, numba.float32)
 
         i = cuda.blockIdx.x * cuda.blockDim.x + cuda.threadIdx.x
         local_i = cuda.threadIdx.x
         # FILL ME IN (roughly 9 lines)
 
     return call
-```
 
 
-```python
 SIZE = 8
 out = np.zeros(1)
 a = np.arange(SIZE)
@@ -700,7 +673,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_70_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_56_1.svg)
     
 
 
@@ -728,10 +701,8 @@ def conv_spec(a, b):
     for i in range(a.shape[0]):
         out[i] = sum([a[i + j] * b[j] for j in range(len) if i + j < a.shape[0]])
     return out
-```
 
 
-```python
 MAX_CONV = 5
 TPB = 8
 TPB_MAX_CONV = TPB + MAX_CONV
@@ -743,12 +714,10 @@ def conv_test(cuda):
         # FILL ME IN (roughly 17 lines)
 
     return call
-```
-
-Test 1
 
 
-```python
+# Test 1
+
 SIZE = 6
 CONV = 3
 out = np.zeros(SIZE)
@@ -779,7 +748,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_76_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_59_1.svg)
     
 
 
@@ -826,7 +795,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_79_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_62_1.svg)
     
 
 
@@ -861,10 +830,8 @@ def sum_spec(a):
     for j, i in enumerate(range(0, a.shape[-1], TPB)):
         out[j] = a[i : i + TPB].sum()
     return out
-```
 
 
-```python
 def sum_test(cuda):
     def call(out, a, size: int) -> None:
         cache = cuda.shared.array(TPB, numba.float32)
@@ -873,12 +840,10 @@ def sum_test(cuda):
         # FILL ME IN (roughly 12 lines)
 
     return call
-```
-
-Test 1
 
 
-```python
+# Test 1
+
 SIZE = 8
 out = np.zeros(1)
 inp = np.arange(SIZE)
@@ -907,7 +872,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_87_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_67_1.svg)
     
 
 
@@ -954,7 +919,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_90_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_70_1.svg)
     
 
 
@@ -981,10 +946,8 @@ def sum_spec(a):
     for j, i in enumerate(range(0, a.shape[-1], TPB)):
         out[..., j] = a[..., i : i + TPB].sum(-1)
     return out
-```
 
 
-```python
 def axis_sum_test(cuda):
     def call(out, a, size: int) -> None:
         cache = cuda.shared.array(TPB, numba.float32)
@@ -994,10 +957,8 @@ def axis_sum_test(cuda):
         # FILL ME IN (roughly 12 lines)
 
     return call
-```
 
 
-```python
 BATCH = 4
 SIZE = 6
 out = np.zeros((BATCH, 1))
@@ -1027,7 +988,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_95_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_73_1.svg)
     
 
 
@@ -1065,10 +1026,8 @@ stores it in `out`.
 ```python
 def matmul_spec(a, b):
     return a @ b
-```
 
 
-```python
 TPB = 3
 def mm_oneblock_test(cuda):
     def call(out, a, b, size: int) -> None:
@@ -1082,20 +1041,14 @@ def mm_oneblock_test(cuda):
         # FILL ME IN (roughly 14 lines)
 
     return call
-```
 
-Test 1
+# Test 1
 
-
-```python
 SIZE = 2
 out = np.zeros((SIZE, SIZE))
 inp1 = np.arange(SIZE * SIZE).reshape((SIZE, SIZE))
 inp2 = np.arange(SIZE * SIZE).reshape((SIZE, SIZE)).T
-```
 
-
-```python
 problem = CudaProblem(
     "Matmul (Simple)",
     mm_oneblock_test,
@@ -1121,7 +1074,7 @@ problem.show(sparse=True)
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_102_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_76_1.svg)
     
 
 
@@ -1138,17 +1091,15 @@ problem.check()
      [ 3 13]]
 
 
+Test 2
+
 
 ```python
-# Test 2
 SIZE = 8
 out = np.zeros((SIZE, SIZE))
 inp1 = np.arange(SIZE * SIZE).reshape((SIZE, SIZE))
 inp2 = np.arange(SIZE * SIZE).reshape((SIZE, SIZE)).T
-```
 
-
-```python
 problem = CudaProblem(
     "Matmul (Full)",
     mm_oneblock_test,
@@ -1174,7 +1125,7 @@ problem.show(sparse=True)
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_105_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_79_1.svg)
     
 
 
