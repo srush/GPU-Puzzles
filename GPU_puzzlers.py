@@ -286,9 +286,11 @@ problem.check()
 # Implement a kernel that adds 10 to each position of `a` and stores it in `out`.
 # You have fewer threads per block than the size of `a`.
 
-# *Tip: Each block can have a constant amount of shared memory that
-# only threads in that block can read and write to.
-# After writing you should use `cuda.syncthreads` to ensure that threads do not cross.*
+# **Warning**: Each block can only have a *constant* amount of shared
+#  memory that threads in that block can read and write to. This needs
+#  to be a literal python constant not a variable. After writing to
+#  shared memory you need to call `cuda.syncthreads` to ensure that
+#  threads do not cross.
 
 # (This example does not really need shared memory or syncthreads, but it is a demo.)
 
