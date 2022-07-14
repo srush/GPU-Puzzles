@@ -45,7 +45,7 @@ warnings.filterwarnings(
 
 
 # ## Puzzle 1: Map
-
+#
 # Implement a "kernel" (GPU function) that adds 10 to each position of vector `a`
 # and stores it in vector `out`.  You have 1 thread per position.
 
@@ -87,7 +87,7 @@ problem.check()
 # -
 
 # ## Puzzle 2 - Zip
-
+#
 # Implement a kernel that adds together each position of `a` and `b` and stores it in `out`.
 # You have 1 thread per position.
 
@@ -119,7 +119,7 @@ problem.check()
 # -
 
 # ## Puzzle 3 - Guards
-
+#
 # Implement a kernel that adds 10 to each position of `a` and stores it in `out`.
 # You have more threads than positions.
 
@@ -151,7 +151,7 @@ problem.check()
 # -
 
 # ## Puzzle 4 - Map 2D
-
+#
 # Implement a kernel that adds 10 to each position of `a` and stores it in `out`.
 # Input `a` is 2D and square. You have more threads than positions.
 
@@ -178,7 +178,7 @@ problem.check()
 # -
 
 # ## Puzzle 5 - Broadcast
-
+#
 # Implement a kernel that adds `a` and `b` and stores it in `out`.
 # Inputs `a` and `b` are vectors. You have more threads than positions.
 
@@ -212,7 +212,7 @@ problem.check()
 # -
 
 # ## Puzzle 6 - Blocks
-
+#
 # Implement a kernel that adds 10 to each position of `a` and stores it in `out`.
 # You have fewer threads per block than the size of `a`.
 
@@ -248,7 +248,7 @@ problem.check()
 # -
 
 # ## Puzzle 7 - Blocks 2D
-
+#
 # Implement the same kernel in 2D.  You have fewer threads per block
 # than the size of `a` in both directions.
 
@@ -282,7 +282,7 @@ problem.check()
 # -
 
 # ## Puzzle 8 - Shared
-
+#
 # Implement a kernel that adds 10 to each position of `a` and stores it in `out`.
 # You have fewer threads per block than the size of `a`.
 
@@ -331,7 +331,7 @@ problem.check()
 # -
 
 # ## Puzzle 9 - Pooling
-
+#
 # Implement a kernel that sums together the last 3 position of `a` and stores it in `out`.
 # You have 1 thread per position. You only need 1 global read and 1 global write per thread.
 
