@@ -57,6 +57,7 @@ class Table:
         self.array[index]
         if isinstance(index, int):
             index = (index,)
+        assert len(index) == len(self.size), "Wrong number of indices"
         if index[0] >= self.size[0]:
             assert False, "bad size"
 
@@ -66,6 +67,7 @@ class Table:
         self.array[index]
         if isinstance(index, int):
             index = (index,)
+        assert len(index) == len(self.size), "Wrong number of indices"
         if index[0] >= self.size[0]:
             assert False, "bad size"
         if isinstance(val, Scalar):
