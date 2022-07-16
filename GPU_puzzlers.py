@@ -54,7 +54,9 @@ warnings.filterwarnings(
 # standard python tools like list comprehensions or ask for Numpy properties
 # like shape or size (if you need the size, it is given as an argument).
 # The puzzles only require doing simple operations, basically
-# +, *, simple array indexing, for loops, and if statements. If you get an
+# +, *, simple array indexing, for loops, and if statements.
+# You are allowed to use local variables. 
+# If you get an
 # error it is probably because you did something fancy :). 
 
 
@@ -378,7 +380,7 @@ problem.check()
 # ## Puzzle 10 - Dot Product
 #
 # Implement a kernel that computes the dot-product of `a` and `b` and stores it in `out`.
-# You have 1 thread per position. You only need 1 global read and 1 global write per thread.
+# You have 1 thread per position. You only need 2 global reads and 1 global write per thread.
 
 # *Note: For this problem you don't need to worry about number of shared reads. We will
 #  handle that challenge later.*
@@ -386,7 +388,6 @@ problem.check()
 # +
 def dot_spec(a, b):
     return a @ b
-
 
 TPB = 8
 def dot_test(cuda):
@@ -396,7 +397,6 @@ def dot_test(cuda):
         i = cuda.blockIdx.x * cuda.blockDim.x + cuda.threadIdx.x
         local_i = cuda.threadIdx.x
         # FILL ME IN (roughly 9 lines)
-
     return call
 
 
@@ -435,7 +435,7 @@ def conv_spec(a, b):
     return out
 
 
-MAX_CONV = 5
+MAX_CONV = 4
 TPB = 8
 TPB_MAX_CONV = TPB + MAX_CONV
 def conv_test(cuda):

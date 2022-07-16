@@ -44,7 +44,9 @@ class Scalar:
             return ScalarHistory("id", [self])
         return ScalarHistory("+", [self, b])
 
-
+    def __iadd__(self, other):
+        assert False, "Instead of `out[] +=` use a local variable `acc + =`"
+    
 class Table:
     def __init__(self, name, array):
         self.name = name
@@ -75,8 +77,6 @@ class Table:
         if isinstance(val, float):
             return
         self.incoming.append((index, val))
-
-
 
 @dataclass(frozen=True, eq=True)
 class Coord:

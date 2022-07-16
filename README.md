@@ -59,7 +59,9 @@ and stores it in vector `out`.  You have 1 thread per position.
 standard python tools like list comprehensions or ask for Numpy properties
 like shape or size (if you need the size, it is given as an argument).
 The puzzles only require doing simple operations, basically
-+, *, simple array indexing, for loops, and if statements. If you get an
++, *, simple array indexing, for loops, and if statements.
+You are allowed to use local variables. 
+If you get an
 error it is probably because you did something fancy :). 
 
 *Tip: Think of the function `call` as being run 1 time for each thread.
@@ -100,7 +102,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_15_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_14_1.svg)
     
 
 
@@ -156,7 +158,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_19_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_17_1.svg)
     
 
 
@@ -218,7 +220,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_24_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_21_1.svg)
     
 
 
@@ -270,7 +272,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_28_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_24_1.svg)
     
 
 
@@ -331,7 +333,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_32_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_27_1.svg)
     
 
 
@@ -394,7 +396,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_37_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_31_1.svg)
     
 
 
@@ -453,7 +455,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_41_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_34_1.svg)
     
 
 
@@ -535,7 +537,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_47_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_39_1.svg)
     
 
 
@@ -605,7 +607,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_52_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_43_1.svg)
     
 
 
@@ -623,7 +625,7 @@ problem.check()
 ## Puzzle 10 - Dot Product
 
 Implement a kernel that computes the dot-product of `a` and `b` and stores it in `out`.
-You have 1 thread per position. You only need 1 global read and 1 global write per thread.
+You have 1 thread per position. You only need 2 global reads and 1 global write per thread.
 
 *Note: For this problem you don't need to worry about number of shared reads. We will
  handle that challenge later.*
@@ -633,7 +635,6 @@ You have 1 thread per position. You only need 1 global read and 1 global write p
 def dot_spec(a, b):
     return a @ b
 
-
 TPB = 8
 def dot_test(cuda):
     def call(out, a, b, size) -> None:
@@ -642,7 +643,6 @@ def dot_test(cuda):
         i = cuda.blockIdx.x * cuda.blockDim.x + cuda.threadIdx.x
         local_i = cuda.threadIdx.x
         # FILL ME IN (roughly 9 lines)
-
     return call
 
 
@@ -675,7 +675,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_56_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_47_1.svg)
     
 
 
@@ -705,7 +705,7 @@ def conv_spec(a, b):
     return out
 
 
-MAX_CONV = 5
+MAX_CONV = 4
 TPB = 8
 TPB_MAX_CONV = TPB + MAX_CONV
 def conv_test(cuda):
@@ -750,7 +750,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_59_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_50_1.svg)
     
 
 
@@ -797,7 +797,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_62_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_53_1.svg)
     
 
 
@@ -874,7 +874,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_67_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_58_1.svg)
     
 
 
@@ -921,7 +921,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_70_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_61_1.svg)
     
 
 
@@ -990,7 +990,7 @@ problem.show()
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_73_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_64_1.svg)
     
 
 
@@ -1076,7 +1076,7 @@ problem.show(sparse=True)
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_76_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_67_1.svg)
     
 
 
@@ -1127,7 +1127,7 @@ problem.show(sparse=True)
 
 
     
-![svg](GPU_puzzlers_files/GPU_puzzlers_79_1.svg)
+![svg](GPU_puzzlers_files/GPU_puzzlers_70_1.svg)
     
 
 
