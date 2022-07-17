@@ -8,7 +8,7 @@ becoming even more important every day. However you can be an expert
 in machine learning without ever touching GPU code. It is a bit
 weird to be work always through abstraction. 
 
-This notebook is an attempt teach beginner GPU programming in a
+This notebook is an attempt to teach beginner GPU programming in a
 completely interactive fashion. Instead of providing text with
 concepts, it throws you right into coding and building GPU
 kernels. The exercises use NUMBA which directly maps Python
