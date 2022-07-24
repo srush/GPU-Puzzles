@@ -5,11 +5,11 @@
 # ![](https://github.com/srush/GPU-Puzzles/raw/main/cuda.png)
 
 # GPU architectures are critical to machine learning, and seem to be
-# becoming even more important every day. However you can be an expert
-# in machine learning without ever touching GPU code. It is a bit
-# weird to be work always through abstraction. 
+# becoming even more important every day. However, you can be an expert
+# in machine learning without ever touching GPU code. It is hard to gain
+# intuition working through abstractions. 
 
-# This notebook is an attempt teach beginner GPU programming in a
+# This notebook is an attempt to teach beginner GPU programming in a
 # completely interactive fashion. Instead of providing text with
 # concepts, it throws you right into coding and building GPU
 # kernels. The exercises use NUMBA which directly maps Python
@@ -615,13 +615,13 @@ problem.check()
 # ## Puzzle 14 - Matrix Multiply!
 #
 # Implement a kernel that multiplies square matrices `a` and `b` and
-# stores it in `out`.
+# stores the result in `out`.
 #
 # *Tip: The most efficient algorithm here will copy a block into
 #  shared memory before computing each of the individual row-column
 #  dot products. This is easy to do if the matrix fits in shared
 #  memory.  Do that case first. Then update your code to compute
-#  a partial dot-product and then iteratively move the part that you
+#  a partial dot-product and iteratively move the part you
 #  copied into shared memory.* You should be able to do the hard case
 #  in 6 global reads.
 
