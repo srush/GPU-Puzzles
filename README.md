@@ -938,7 +938,7 @@ problem.check()
 
 ## Puzzle 13 - Axis Sum
 
-Implement a kernel that computes a sum over each row of `a` and stores it in `out`.
+Implement a kernel that computes a sum over each column of `a` and stores it in `out`.
 
 
 ```python
