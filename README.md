@@ -29,6 +29,8 @@ then get to coding.
 (If you are into this style of puzzle, also check out my [Tensor
 Puzzles](https://github.com/srush/Tensor-Puzzles) for PyTorch.)
 
+[Walkthrough Guide](https://youtu.be/T28-rXIqPzw)
+
 
 ```python
 !pip install -qqq git+https://github.com/danoneata/chalk@srush-patch-1
