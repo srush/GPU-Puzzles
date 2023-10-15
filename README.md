@@ -29,7 +29,7 @@ then get to coding.
 (If you are into this style of puzzle, also check out my [Tensor
 Puzzles](https://github.com/srush/Tensor-Puzzles) for PyTorch.)
 
-[Walkthrough Guide](https://youtu.be/T28-rXIqPzw)
+[Walkthrough Guide](https://www.youtube.com/watch?v=K4T-YwsOxrM)
 
 
 ```python
