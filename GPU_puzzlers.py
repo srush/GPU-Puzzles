@@ -429,9 +429,10 @@ problem.check()
 # +
 def conv_spec(a, b):
     out = np.zeros(*a.shape)
-    len = b.shape[0]
-    for i in range(a.shape[0]):
-        out[i] = sum([a[i + j] * b[j] for j in range(len) if i + j < a.shape[0]])
+    len_a = a.shape[0]
+    len_b = b.shape[0]
+    for i in range(len_a):
+        out[i] = sum([a[i-j+1] * b[j] for j in range(len_b) if i-j+1 in range(len_a)])
     return out
 
 
