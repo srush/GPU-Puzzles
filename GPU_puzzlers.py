@@ -431,8 +431,9 @@ def conv_spec(a, b):
     out = np.zeros(*a.shape)
     len_a = a.shape[0]
     len_b = b.shape[0]
+    o = (len_b-1) // 2  # Offset to first element
     for i in range(len_a):
-        out[i] = sum([a[i-j+1] * b[j] for j in range(len_b) if i-j+1 in range(len_a)])
+        out[i] = sum([a[i-j+o] * b[j] for j in range(len_b) if i-j+o in range(len_a)])
     return out
 
 
