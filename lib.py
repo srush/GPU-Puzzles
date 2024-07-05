@@ -220,6 +220,7 @@ def draw_connect(tab, dia, loc2, color, con):
         [
             myconnect(dia, loc2, color, con, (tab.name,) + loc, inp.location)
             for (loc, val) in tab.incoming
+            if isintacnce(val, ScalarHistory)
             for inp in val.inputs
         ]
     )
@@ -371,11 +372,12 @@ class CudaProblem:
                         count["out_writes"] += 1
                     else:
                         count["shared_writes"] += 1
-                    for ins in inc[1].inputs:
-                        if ins.location[0].startswith("S"):
-                            count["shared_reads"] += 1
-                        else:
-                            count["in_reads"] += 1
+                    if isintance(inc[1], ScalarHistory):
+                        for ins in inc[1].inputs:
+                            if ins.location[0].startswith("S"):
+                                count["shared_reads"] += 1
+                            else:
+                                count["in_reads"] += 1
             for k in count:
                 if count[k] > full[k]:
                     full[k] = count[k]
