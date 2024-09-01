@@ -23,8 +23,9 @@ class ScalarHistory:
             return self
         if isinstance(b, Scalar):
             return ScalarHistory(self.last_fn, self.inputs + [b])
-
-        return ScalarHistory(self.last_fn, self.inputs + b.inputs)
+        if isinstance(b, ScalarHistory):
+            return ScalarHistory(self.last_fn, self.inputs + b.inputs)
+        return NotImplemented
         
 class Scalar:
     def __init__(self, location):
@@ -33,8 +34,9 @@ class Scalar:
     def __mul__(self, b):
         if isinstance(b, (float, int)):
             return ScalarHistory("id", [self])
-        return ScalarHistory("*", [self, b])
-
+        if isinstance(b, Scalar):
+            return ScalarHistory("*", [self, b])
+        return NotImplemented
 
     def __radd__(self, b):
         return self + b
@@ -42,10 +44,11 @@ class Scalar:
     def __add__(self, b):
         if isinstance(b, (float, int)):
             return ScalarHistory("id", [self])
-        return ScalarHistory("+", [self, b])
-
-    def __iadd__(self, other):
-        assert False, "Instead of `out[] +=` use a local variable `acc + =`"
+        if isinstance(b, Scalar):
+            return ScalarHistory("+", [self, b])
+        if isinstance(b, ScalarHistory):
+            return ScalarHistory("+", [self] + b.inputs)
+        return NotImplemented
     
 class Table:
     def __init__(self, name, array):
@@ -74,8 +77,9 @@ class Table:
             assert False, "bad size"
         if isinstance(val, Scalar):
             val = ScalarHistory("id", [val])
-        if isinstance(val, float):
+        if isinstance(val, (float, int)):
             return
+        assert isinstance(val, ScalarHistory), "Assigning an unrecognized value"
         self.incoming.append((index, val))
 
 @dataclass(frozen=True, eq=True)
