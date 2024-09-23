@@ -701,9 +701,11 @@ You need to handle the general case. You only need 2 global reads and 1 global w
 ```python
 def conv_spec(a, b):
     out = np.zeros(*a.shape)
-    len = b.shape[0]
-    for i in range(a.shape[0]):
-        out[i] = sum([a[i + j] * b[j] for j in range(len) if i + j < a.shape[0]])
+    len_a = a.shape[0]
+    len_b = b.shape[0]
+    o = (len_b-1) // 2  # Offset to first element
+    for i in range(len_a):
+        out[i] = sum([a[i-j+o] * b[j] for j in range(len_b) if i-j+o in range(len_a)])
     return out
 
 
@@ -764,7 +766,7 @@ problem.check()
 
     Failed Tests.
     Yours: [0. 0. 0. 0. 0. 0.]
-    Spec : [ 5.  8. 11. 14.  5.  0.]
+    Spec : [ 0.  1.  4.  7. 10. 13.]
 
 
 Test 2
@@ -811,7 +813,7 @@ problem.check()
 
     Failed Tests.
     Yours: [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
-    Spec : [14. 20. 26. 32. 38. 44. 50. 56. 62. 68. 74. 80. 41. 14.  0.]
+    Spec : [ 0.  1.  4. 10. 16. 22. 28. 34. 40. 46. 52. 58. 64. 70. 76.]
 
 
 ## Puzzle 12 - Prefix Sum
