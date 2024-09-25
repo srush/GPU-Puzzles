@@ -669,23 +669,6 @@ problem.check()
 
 # Test 2
 
-# +
-SIZE = 8
-out = np.zeros((SIZE, SIZE))
-inp1 = np.arange(SIZE * SIZE).reshape((SIZE, SIZE))
-inp2 = np.arange(SIZE * SIZE).reshape((SIZE, SIZE)).T
-
-problem = CudaProblem(
-    "Matmul (Full)",
-    mm_oneblock_test,
-    [inp1, inp2],
-    out,
-    [SIZE],
-    Coord(3, 3),
-    Coord(TPB, TPB),
-    spec=matmul_spec,
-)
-problem.show(sparse=True)
 # -
 
 # +
