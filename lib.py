@@ -6,9 +6,12 @@ import chalk
 from dataclasses import dataclass
 from typing import List, Any
 from collections import Counter
-from numba import cuda
+from numba import cuda, config
 import numba
 import random
+
+config.CUDA_ENABLE_PYNVJITLINK = 1
+config.CUDA_LOW_OCCUPANCY_WARNINGS = 0
 
 @dataclass
 class ScalarHistory:
