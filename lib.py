@@ -4,7 +4,7 @@ from chalk import *
 from colour import Color
 import chalk
 from dataclasses import dataclass
-from typing import List, Any
+from typing import List, Any, Tuple
 from collections import Counter
 from numba import cuda
 import numba
@@ -168,9 +168,12 @@ class Cuda:
 
 black = Color("black")
 white = Color("white")
-im = image(
-    "robot.png", "https://raw.githubusercontent.com/minitorch/diagrams/main/robot.png"
-).scale_uniform_to_x(1)
+try:
+    im = image(
+        "robot.png", "https://raw.githubusercontent.com/minitorch/diagrams/main/robot.png"
+    ).scale_uniform_to_x(1)
+except NameError:
+    im = circle(0.35).fill_color(white).line_color(black)
 colors = list(Color("red").range_to(Color("blue"), 10))
 
 def table(name, r, c):
@@ -188,6 +191,8 @@ def table(name, r, c):
 
 
 def myconnect(diagram, loc, color, con, name1, name2):
+    if not hasattr(diagram, "get_subdiagram_envelope"):
+        return empty()
     bb1 = diagram.get_subdiagram_envelope(name1)
     bb2 = diagram.get_subdiagram_envelope(name2)
     assert bb1 is not None, f"{name1}: You may be reading/writing from an un'synced array"
